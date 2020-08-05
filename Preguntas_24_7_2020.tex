@@ -1,0 +1,40 @@
+\documentclass[letterpaper,10pt,english,spanish]{article}
+
+\usepackage[latin1]{inputenc} % Caracteres acentuados y la ñ. 
+\usepackage[dvips]{epsfig}    % Incluir figuras en PostScript
+\usepackage{color} 
+\usepackage{babel}            % Distintas lenguas (en este caso spanish)
+\usepackage{pslatex}          % fonts de postscript, para generar PDFs
+\usepackage{url}              % Colocar una url
+\usepackage{amssymb}          % Notacion numeros complejos,Reales...
+\usepackage{charter}          % Tipo de letra
+
+
+\title{Preguntas relacionadas con la tesis títulada ``Un enfoque computacional a la representación 
+del grupo simétrico en homologías''}
+\author{Manuel Campero Jurado en colaboración con el Dr. Rafel Villarroel Flores}
+
+\date{\today} % si no la pongo se pone automaticamente
+  
+\begin{document}
+\maketitle
+\thispagestyle{empty} % Primera pagina sin numero
+  
+ 
+
+\section{Preguntas}
+
+Buenas tardes Doctor, he estado estudiando los artículos que hizo el favor de mandarme, sigo estudiando ``Equivariant collapses and the homotopy type of iterated clique graphs'' porque tengo algunas dudas sobre los colapsos, pero aun no lo mando porque quiero hacer bien las preguntas, por el momento sólo quisiera comentarle que para formar los simplejos de un complejo simplicial abstracto yo busco todos los subconjuntos de una ``facet'' (los simplejos que no son caras de simplejos más grandes), pero en caso de la homología de $K(M_9)$ ya no puedo calcular los subconjuntos de una sola facet (y $K(M_9)$ tiene más de 55,000 facet), también intenté usar la función de NetworksX ``enumerate all cliques(G)'' (claro que en el caso particular cuando el complejo simplicial proviene de un gráfica), pero tampoco termina, ¿usted conoce o tiene una alguna función que si permita calcular todos lo simplejos del complejo simplicial abstracto asociado con $K(M_9)$?, ya que lo que llevo del artículo supone que yo conozco todos los simplejos de un complejo simplicial (porque necesito saber cuales caras son libres, etc).
+
+En el artículo que hizo el favor de mandarme (The clique operator on matching and chessboard graphs) el corolario 4.3 dice que si una gráfica $G$ tiene a lo más $8$ vértices, entonces su gráfica de líneas $L(G)$ satisface que $K(L(G)) \simeq  L(G)$. Sus tesistas anteriores y yo hemos buscado para qué $n,k \geq 0$ se cumple $\tilde{H_k}(M_n) \cong_{s_n} \tilde{H_k}(K(M_n))$ (aunque en mi caso yo encuentro la homología de dimensión cero y no la homología reducida de dimensión cero), por eso tengo otra pregunta: ¿es posible que $\tilde{H_k}(M_n) \cong_{s_n} \tilde{H_k}(K(M_n))$ para $n> 9$ y todo $k \geq 0$?* o ¿eso contradice el corolario anterior?
+
+Lo siguiente es sólo si la respuesta a * es negativa:
+Programé en python el teorema de Bouc y me dice que 
+$\tilde{H_k}(M_9) \cong_{s_n} 0$ para $k \in \left \{ 0, 1, 4, 5, \ldots  \right \}$,  $\tilde{H_2}(M_9) \cong_{s_n} S^{(3,3,3)}$ y $\tilde{H_3}(M_9) \cong_{s_n} S^{(5,1,1,1,1)}$.
+
+Entonces como la respuesta a * no es afirmativa, en principio $\tilde{H_2}(K(M_9))$ y $\tilde{H_3}(K(M_9))$ como $S_n$ módulos podrían ser isomorfas a muchas cosas ¿cierto?, pero ¿se debe cumplir que $\tilde{H_2}(K(M_9)) \ncong_{s_n} S^{(3,3,3)}$ o $\tilde{H_3}(K(M_9)) \ncong_{s_n} S^{(5,1,1,1,1)}$? (pensando que si para algún $k \geq 0$ se tiene que $\tilde{H_k}(M_9) \cong_{s_n} 0$, entonces necesariamente $\tilde{H_k}(K(M_9)) \cong_{s_n} 0$), y tal vez está incluido en lo anterior, pero podría pasar que ¿ $\tilde{H_2}(K(M_9)) \cong_{s_n} 0$ o $\tilde{H_3}(K(M_9)) \cong_{s_n} 0$ aun cuando la 2 homología y la 3 homología para $M_9$ es distinta de cero? 
+
+
+
+\end{document}
+

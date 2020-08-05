@@ -1,0 +1,112 @@
+\documentclass[letterpaper,10pt,english,spanish]{article}
+%\documentclass[spanish]{article}
+
+\usepackage[latin1]{inputenc} % Caracteres acentuados y la ñ. 
+\usepackage[dvips]{epsfig}    % Incluir figuras en PostScript
+\usepackage{color} 
+\usepackage{babel}            % Distintas lenguas (en este caso spanish)
+\usepackage{pslatex}          % fonts de postscript, para generar PDFs
+\usepackage{url}              % Colocar una url
+\usepackage{amssymb}          % Notacion numeros complejos,Reales...
+\usepackage{charter}  
+\usepackage{pgfkeys}        % Tipo de letra
+%\usepackage{algorithm}       % paquete para usar algorithm
+%\usepackage{algorithmic}     % paquete para usar algorithm
+%\usepackage{fancyheadings}    % Usar comentario en pie y cabeza
+%\usepackage{fullpage}        % Llena mas las paginas
+%\usepackage[mathcal]{euscript}
+
+%%%%% Para hacer referencias (mas abajo hay un ejemplo, esta comentado) 
+% \newcommand{\water}{$H_2O$}  % Definir un nuevo comando \water
+
+
+%%%%%%%%%  Para que diga ``Tabla 1'' en vez de ``Cuadro 1''
+%\addto\captionsspanish{  
+%\def\listtablename{Indice de Tablas}
+%\def\tablename{Tabla}
+%}
+    
+
+%%%%%% Encabezado de pie y cabeza (necesita paquete fancyheadings)
+%%\pagestyle{fancyplain}
+%%\lhead[\fancyplain{}{\bf Pág. \thepage}]{\fancyplain{}{\bf Plantilla
+%%    de Ejemplo}}  
+%%\rhead[\fancyplain{}{\bf Plantilla de ejemplo}]{\fancyplain{}{\bf 
+%%    Página \thepage }} 
+%%\lfoot[\fancyplain{}{\bf \today}]{} 
+%%\cfoot{}
+%%\rfoot[]{\fancyplain{}{\bf \today}}
+%%\footrulewidth 0.4pt
+
+%%\makeatother
+%%%%%%%%%
+
+\title{Preguntas relacionadas con la tesis títulada "Un enfoque computacional a la representación 
+del grupo simétrico en homologías"}
+\author{Manuel Campero Jurado en colaboración con el Dr. Rafel Villarroel Flores}
+
+\date{\today} % si no la pongo se pone automaticamente
+  
+\begin{document}
+\maketitle
+\thispagestyle{empty} % Primera pagina sin numero
+  
+ 
+
+\section{Preguntas}
+
+Buenas noches Doctor, espero que se encuentre muy bien, disculpe que lo moleste, he estado revisando el artículo que me hizo favor de mandarme llamado ``The Tidy Set: A Minimal Simplicial Set for Computing Homology of Clique Complexes'', y tengo algunas dudas.
+
+Se menciona que dado un complejo simplicial $K$, donde los $n-$ simplejos se denotan por $K_n$ y asumiendo que los vértices en cada simplejo están orientados, por ejemplo, un orden total en los vértices en el complejo implica un orden para cada simplex. Se define el conjunto simplicial (aunque antes hay otra definición que da de conjunto simplicial) $X$ que corresponde al complejo simplicial $K$ inductivamente:
+\begin{equation}
+X_0 = K_0
+\end{equation}
+\begin{equation}
+X_n = K_n \cup \cup_{i}^{n} s_i(X_{n-1}), n > 0.
+\end{equation}
+El $i-$ ésimo ``face operator'' $d_i$ elimina el $i-$ ésimo vértices, y el $i-$ ésimo ``degeneracy operator'' $s_i$ lo repite:
+\begin{equation}
+d_i(\left [ v_0, \ldots, v_n \right ]) = \left [ v_0, \ldots, \hat{v_i}, \ldots, v_n \right ]
+\end{equation}
+\begin{equation}
+s_i(\left [ v_0, \ldots, v_n \right ]) = \left [ v_0, \ldots, v_i, v_i,  \ldots, v_n \right ]
+\end{equation}
+
+Posteriormente en la sección 2.4 se menciona que dado un subconjunto $A \subset X$ que es un conjunto simplicial, se puede definir los grupos de homología relativa $H_n(X,A)$, donde se ve al subconjunto $A$ como colapsado a un sólo punto. Aquí sigo sin entender muy bien qué es $H_n(X,A)$ y por qué se utiliza esa notación (una pareja de conjuntos). Así que estuve investigando y encontré en el libro Algebraic Topology de Hatcher pg 115 (del libro) que $C_n(X,A) = C_n(X)/C_n(A)$ y se define un operador $\partial: C_n(X,A) \rightarrow C_{n-1}(X,A)$ y se obtiene una secuencia de operadores fronteras:
+\begin{equation}
+\cdots \rightarrow C_n(X,A) \partial \to C_{n-1}(X,A) \rightarrow \cdot .
+\end{equation}
+(Me marcaba error si ponía el operador frontera arriba o abajo de la flecha de en medio)
+
+Y los grupo de homologías $ker \partial / Im \partial$ de estos complejos de cadenas son los grupos de homología relativa $H_n(X,A)$, ¿es correcto interpretarlo con el enfoque de Hatcher?.
+
+Después en la sección de reducciones (sección 3) se da la definición de una hoja (sección 3.1). Dado un conjunto simplicial $X$, un simplejo $\sigma \in X$ es una hoja si para todo $n$, 
+\begin{equation}
+H_n(Cl \sigma, Cl \sigma \cap Cl(X - Cl \sigma)) = 0,
+\end{equation} 
+Donde $Cl \sigma = \left \{ \tau \in K \mid \tau \subset \sigma \in L \right \}$.
+
+Luego los teoremas 2 y 3 de esa misma sección dan condiciones necesarias para reducir el conjunto simplicial y que tenga grupos de homología isomorfas al original.
+
+Después dados $Q$ y $C$ conjuntos maximales y disjuntos, se define $\mathbb{X}(Q,C)$ el conjunto simplicial que tiene a $Q$ como simplejos maximales y el conjunto $C$ como simplejos maximales colapsados, y $(Q,C)$ denota $\mathbb{X}(Q,C)$. (La verdad no entiendo muy bien qué es lo que quiere decir $(Q,C)$ o gráficamente como me lo podría imaginar, tal vez en un caso muy pequeño).
+
+La definición 4 de esa misma sección dice que dado $(Q,C)$ un conjunto simplicial. Para $\sigma \in Q$, se tiene dos reducciones que preservan la homología:
+\begin{equation}
+trim: (Q,C) \mapsto (Q -\left \{ \sigma \right \}, C), \sigma, hoja.
+\end{equation}
+
+\begin{equation}
+thin: (Q,C) \mapsto (Q -\left \{ \sigma \right \}, C \cup \left \{ \sigma \right \} ), \sigma, aciclico.
+\end{equation}
+
+
+Abajo de las anteriores definiciones se dice que ambas reducciones mantienen que $Q$ y $C$ son disjuntos, y que las representaciones también permiten que se posponga enumerar los conjuntos simpliciales, al menos hasta el momento en el que se debe calcular la homología.
+
+La definición 5 es tidy set, que es eliminar todas la hojas maximales de un complejo simplicial (no entiendo muy bien a qué se refiere con eliminar, tengo una idea de lo que es colapsar pero no eliminar, porque eliminar me suena a que quito todo el simplejo, pero al hacer eso, hay aristas que se quedan sin un vértice y creo que eso no tiene sentido.), luego se colapsan todos los simplejos maximales acíclicos (por cierto busqué que significa que un simplejo sea acíclico pero no encontré nada útil, en esto también ¿me podría ayudar? por favor).
+
+No sé si estoy entendiendo bien, pero para encontrar cuando un simplejo maximal es una hoja(al menos con la definición que da este artículo), no necesito conocer todos los simplejos del complejo simplicial, pero sí necesito conocer todas las caras de dicho simplejo ¿cierto? (computacionalmente no puedo hacer eso en el caso de $K(M_9)$). Sin embargo busqué otra definición que dice que dado $\sigma$ una cara maximal del complejo simplicial $\Delta$, es una hoja si es la única cara maximal o si para alguna $\tilde{\sigma} \in \Delta \setminus \left \langle \sigma \right \rangle$ se tiene que $\sigma \cap \hat{\sigma} \subset \tilde{\sigma}$ para todas las caras maximale $\hat{\sigma} \in \Delta \setminus \left \langle \sigma \right \rangle$. ¿Esa definición es equivalente a la que se da aquí? (por cierto adjunto el pdf donde encontré esa definición y simplemente la puse porque pienso que en ésta sólo necesito conocer las caras maximales).
+
+En verdad muchas gracias, espero que se encuentre muy bien, saludos.
+
+\end{document}
+

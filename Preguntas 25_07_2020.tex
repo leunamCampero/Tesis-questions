@@ -1,0 +1,80 @@
+\documentclass[letterpaper,10pt,english,spanish]{article}
+%\documentclass[spanish]{article}
+
+\usepackage[latin1]{inputenc} % Caracteres acentuados y la ñ. 
+\usepackage[dvips]{epsfig}    % Incluir figuras en PostScript
+\usepackage{color} 
+\usepackage{babel}            % Distintas lenguas (en este caso spanish)
+\usepackage{pslatex}          % fonts de postscript, para generar PDFs
+\usepackage{url}              % Colocar una url
+\usepackage{amssymb}          % Notacion numeros complejos,Reales...
+\usepackage{charter}  
+\usepackage{pgfkeys}        % Tipo de letra
+%\usepackage{algorithm}       % paquete para usar algorithm
+%\usepackage{algorithmic}     % paquete para usar algorithm
+%\usepackage{fancyheadings}    % Usar comentario en pie y cabeza
+%\usepackage{fullpage}        % Llena mas las paginas
+%\usepackage[mathcal]{euscript}
+
+%%%%% Para hacer referencias (mas abajo hay un ejemplo, esta comentado) 
+% \newcommand{\water}{$H_2O$}  % Definir un nuevo comando \water
+
+
+%%%%%%%%%  Para que diga ``Tabla 1'' en vez de ``Cuadro 1''
+%\addto\captionsspanish{  
+%\def\listtablename{Indice de Tablas}
+%\def\tablename{Tabla}
+%}
+    
+
+%%%%%% Encabezado de pie y cabeza (necesita paquete fancyheadings)
+%%\pagestyle{fancyplain}
+%%\lhead[\fancyplain{}{\bf Pág. \thepage}]{\fancyplain{}{\bf Plantilla
+%%    de Ejemplo}}  
+%%\rhead[\fancyplain{}{\bf Plantilla de ejemplo}]{\fancyplain{}{\bf 
+%%    Página \thepage }} 
+%%\lfoot[\fancyplain{}{\bf \today}]{} 
+%%\cfoot{}
+%%\rfoot[]{\fancyplain{}{\bf \today}}
+%%\footrulewidth 0.4pt
+
+%%\makeatother
+%%%%%%%%%
+
+\title{Preguntas relacionadas con la tesis títulada "Un enfoque computacional a la representación 
+del grupo simétrico en homologías"}
+\author{Manuel Campero Jurado en colaboración con el Dr. Rafel Villarroel Flores}
+
+\date{\today} % si no la pongo se pone automaticamente
+  
+\begin{document}
+\maketitle
+\thispagestyle{empty} % Primera pagina sin numero
+  
+ 
+
+\section{Preguntas}
+En el artículo Equivariant collapses and the homotopy type of iterated clique graphs en la segunda página se dice que si $G$ es una gráfica y $x$ es un vértice, entonces se denota por $N_G(x)$ al conjunto de todos los vecinos de $x$ en $G$. La vecindad cerrada de $x$ es $N_G\left[ x \right] = N_G(x) \cup \left\{ x \right\}$ y si $G$ es una gráfica y $X  \subseteq G$, se denota la vecindad común cerrada de $X$ en $G$ como $N_G\left[ X \right] = \cap_{x \in X} N_G\left[ x \right]$ y posteriormente en la proposición 2.2 se utiliza $N_G\left[  \sigma \right]$ donde $\sigma$ es una cara de un subcomplejo, así que mi pregunta es ¿Cómo se define $N_G\left[  \sigma \right]$ (ya que una cara no necesariamente es un subconjunto del 1-esqueleto de un complejo simplicial)? y posteriormente se habla sobre $N_G\left[ e \right]$ donde $e$ es una arista ¿$N_G\left[ e \right]$ denota a los al conjunto cerrado de vecinos de los vértices de $G$ que están conectados por $e$? o ¿cómo sería la definición general del conjunto cerrado de vecinos de $e$ en ese caso?								
+
+Posteriormente se dice que si $\mathcal{F}$ es una familia de caras libres de un complejo simplicial $\Delta$ diremos que es independientemente libre si simpre que $\sigma$, ${\sigma}' \in {F}$ (por cierto ¿la contención es propia?) y $\tau \in \Delta$ son tal que $\sigma \subseteq \tau$ y ${\sigma}' \subseteq \tau$, entonces ${\sigma}' = \sigma$.
+Y se denota $[ \mathcal{F},\infty )  = \bigcup_{\sigma \in \mathcal{F}}  [ \sigma,\infty ) $ %Disuculpe no encontré como hacer intervalos semi-abiertos o semi-cerrados en LaTex
+
+Luego (4) de la proposición 2.4 dice que si $\mathcal{F}$ es finito y independientemente libre, entonces $\Delta$ se colapsa en $\Delta \setminus [ \mathcal{F},\infty ) $.
+
+Luego vienen dos condiciones para decir que un grupo $\Gamma$ actúa simplicialmente en un complejo simplicial $\Delta$:
+\begin{enumerate}
+\item Si $x, gx \in \varphi$ para algún $g \in \Gamma$, $\varphi \in \Delta$, entonces $x = gx$.
+\item Si $g_0, g_1, \ldots, g_n \in \Gamma$ y $\left \{ x_0, x_1, \ldots, x_n \right \}$, $\left \{ g_0 x_0, g_1 x_1, \ldots, g_n x_n \right \} \in \Delta$, entonces existe un $g \in \Gamma$ tal que $g x_i = g_i x_i$ para todo $i$.
+\end{enumerate}
+
+La proposición 2.5 dice que sea $\Delta$ un $\Gamma -$ complejo que satisface $1$. Sean $\sigma, \varphi \in \Delta$ tales que $\sigma, g \sigma \subset \varphi$ para algún $g \in \Gamma$. Entonces $\sigma = g \sigma$. En particular, siempre que $\sigma$ es una cara libre de $\Delta$, la $\Gamma -$ órbita de $\sigma$, $\Gamma \sigma = \left \{ g \sigma \mid  g \in \Gamma \right \}$ es independientemente libre.
+
+Además dado $\Delta$ un $\Gamma -$ complejo. Para un vértice $x$ de $\Delta$ sea $\Gamma x = \left \{ g x \mid  g \in \Gamma \right \}$. La órbita compleja $\Delta / \Gamma$ tiene como conjunto de vértices $\Gamma x = \left \{ g x \mid  g \in V(\Delta) \right \}$ y simplejos $\Delta / \Gamma = \left \{ p(\sigma) \mid \sigma \in \Delta \right \}$ donde $p: V(\Delta) \rightarrow  V(\Delta / \Gamma)$ está dado por $x \mapsto\Gamma x$.
+
+Y la proposición 2.6 dice que dada $\sigma$ una cara libre de algún $\Gamma -$ complejo $\Delta$ con la propiedad 2, entonces $p(\sigma)$ es una cara libre  de $\Delta / \Gamma$ y $(\Delta \setminus [ \Gamma \sigma,\infty ) / \Gamma = (\Delta / \Gamma) [p(\sigma),\infty)$.
+
+En el segundo parráfo de la página 4 dice que si $\sigma$ es una cara libre del $\Gamma -$ complejo $\Delta$ y su $\Gamma -$órbita $\left \{ g \sigma \mid  g  \Gamma \right \}$ es independientemente libre, se dirá que $(\Delta \setminus [ \Gamma \sigma,\infty )$ se obtiene de $\Delta$ por un elemental $\Gamma -$ colapso. Con lo anterior, no sé si estoy entendiendo bien, en mi caso ¿estoy buscando $(\Delta \setminus [ \Gamma \sigma,\infty )$?, es decir ¿$(\Delta \setminus [ \Gamma \sigma,\infty )$ tiene la misma información (por así decirlo) que $\Delta$ al actuar simplicialmente $\Gamma$ sobre ellos?.
+							
+
+\end{document}
+
